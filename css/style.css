@@ -1,0 +1,127 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+}
+
+body {
+    background: #ecf0f1;
+}
+
+.hero.is-primary {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+/* TIMELINE */
+.timeline-container {
+    padding: 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -3.6rem;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: 4px solid white;
+    box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+.timeline-content {
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateX(5px);
+}
+
+.timeline-content .heading {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+
+/* TABS */
+.tabs.is-boxed li.is-active a {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white !important;
+}
+
+.tabs a {
+    transition: all 0.3s ease;
+    color: var(--primary-color);
+}
+
+.tabs a:hover {
+    background-color: rgba(44, 62, 80, 0.1);
+}
+
+/* PROJET CARDS */
+.project-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 2px solid transparent;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+}
+
+.project-card .card-footer-item {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.project-card .card-footer-item:hover {
+    background-color: rgba(44, 62, 80, 0.1);
+}
+
+/* MODAL */
+.modal-card {
+    max-width: 800px;
+}
+
+/* FOOTER */
+.footer {
+    background: #363636;
+    color: white;
+    margin-top: 4rem;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .timeline {
+        padding-left: 2rem;
+    }
+
+    .timeline-marker {
+        left: -2.6rem;
+    }
+}
