@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur Monfort - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Arthur Monfort</h1>
+        <p class="hero-subtitle">Étudiant BUT Informatique</p>
+        <p class="hero-location">
+            <i class="fas fa-map-marker-alt"></i>
+            IUT de Sète, Occitanie
+        </p>
+    </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <div class="container">
+        <a href="#about" class="nav-link active">
+            <i class="fas fa-user"></i> À propos
+        </a>
+        <a href="#qualifications" class="nav-link">
+            <i class="fas fa-graduation-cap"></i> Qualifications
+        </a>
+        <a href="#projects" class="nav-link">
+            <i class="fas fa-code"></i> Projets
+        </a>
+        <a href="#contact" class="nav-link">
+            <i class="fas fa-envelope"></i> Contact
+        </a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- SECTION À PROPOS -->
+    <section id="about" class="section">
+        <h2 class="section-title">
+            <i class="fas fa-user"></i>
+            À propos
+        </h2>
+        <div class="box">
+            <p>
+                Je suis Arthur, j'ai 19 ans, je suis étudiant en 2ème année de <strong>BUT informatique à l'IUT de Sète</strong>.
+                J'ai participé et réalisé plusieurs projets informatiques :
+            </p>
+            <p>
+                J'ai réalisé une application web en fonction des attentes d'un client. J'ai ainsi fait preuve de <strong>rigueur</strong> et <strong>d'autonomie</strong> dans mes tâches à accomplir.
+                Lors de la <strong>Nuit de l'Info</strong>, j'ai réalisé un site avec un travail sous pression et en m'intégrant dans une nouvelle équipe en peu de temps.
+                J'ai assouvi ma soif d'apprentissage en découvrant de nouveaux langages informatiques et en approfondissant leur utilisation.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION QUALIFICATIONS -->
+    <section id="qualifications" class="section">
+        <h2 class="section-title">
+            <i class="fas fa-graduation-cap"></i>
+            Qualifications
+        </h2>
+
+        <!-- Onglets -->
+        <div class="tabs">
+            <button class="tab-button active" data-tab="formations">
+                <i class="fas fa-book"></i>
+                Formations
+            </button>
+            <button class="tab-button" data-tab="experiences">
+                <i class="fas fa-briefcase"></i>
+                Expériences
+            </button>
+        </div>
+
+        <!-- Timeline Formations -->
+        <div class="timeline-container" id="formations-timeline">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023 - Aujourd'hui</span>
+                        <h3>BUT Informatique</h3>
+                        <p>IUT de Sète - Spécialisation progressive en Cybersécurité</p>
+                        <div class="tags">
+                            <span class="tag">Réseaux</span>
+                            <span class="tag">Systèmes</span>
+                            <span class="tag">Développement</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023</span>
+                        <h3>Baccalauréat</h3>
+                        <p>Obtention du Baccalauréat avec mention</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Formation continue</span>
+                        <h3>Auto-formation</h3>
+                        <p>Apprentissage autonome : Linux, Bash, Virtualisation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Expériences -->
+        <div class="timeline-container hidden" id="experiences-timeline">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024</span>
+                        <h3>Nuit de l'Info</h3>
+                        <p>Développement d'un site web en équipe sous contrainte de temps</p>
+                        <div class="tags">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Travail d'équipe</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024</span>
+                        <h3>SAÉ Client PHP</h3>
+                        <p>Application web selon un cahier des charges client</p>
+                        <div class="tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023-2024</span>
+                        <h3>Projets personnels</h3>
+                        <p>Administration système, scripts Bash</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PROJETS -->
+    <section id="projects" class="section">
+        <h2 class="section-title">
+            <i class="fas fa-code"></i>
+            Mes projets
+        </h2>
+
+        <div class="projects-grid">
+            <!-- Projet 1 -->
+            <div class="project-card" data-project="0">
+                <div class="project-header">
+                    <h3>SAÉ Client PHP</h3>
+                </div>
+                <div class="project-body">
+                    <p>Développement d'une application web complète pour un client</p>
+                    <div class="tags">
+                        <span class="tag tag-primary">PHP</span>
+                        <span class="tag tag-primary">MySQL</span>
+                        <span class="tag tag-primary">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <button class="btn-details">
+                        <i class="fas fa-info-circle"></i>
+                        Voir détails
+                    </button>
+                </div>
+            </div>
+
+            <!-- Projet 2 -->
+            <div class="project-card" data-project="1">
+                <div class="project-header">
+                    <h3>Nuit de l'Info</h3>
+                </div>
+                <div class="project-body">
+                    <p>Site web réalisé lors du hackathon national</p>
+                    <div class="tags">
+                        <span class="tag tag-info">HTML/CSS</span>
+                        <span class="tag tag-info">JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <button class="btn-details">
+                        <i class="fas fa-info-circle"></i>
+                        Voir détails
+                    </button>
+                </div>
+            </div>
+
+            <!-- Projet 3 -->
+            <div class="project-card" data-project="2">
+                <div class="project-header">
+                    <h3>SAÉ Pokémon TCG</h3>
+                </div>
+                <div class="project-body">
+                    <p>Application de gestion de cartes Pokémon en Java</p>
+                    <div class="tags">
+                        <span class="tag tag-success">Java</span>
+                        <span class="tag tag-success">JavaFX</span>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <button class="btn-details">
+                        <i class="fas fa-info-circle"></i>
+                        Voir détails
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CONTACT -->
+    <section id="contact" class="section">
+        <h2 class="section-title">
+            <i class="fas fa-envelope"></i>
+            Contact
+        </h2>
+
+        <div class="contact-grid">
+            <div class="box">
+                <h3><i class="fas fa-address-card"></i> Coordonnées</h3>
+                <div class="contact-info">
+                    <p>
+                        <i class="fas fa-phone"></i>
+                        <strong>Téléphone :</strong> 06 58 43 50 28
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <strong>Email :</strong> arthurmontfort@etu.umontpellier.fr
+                    </p>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <strong>Localisation :</strong> Sète, Occitanie
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3><i class="fas fa-link"></i> Liens professionnels</h3>
+                <div class="contact-buttons">
+                    <a href="https://www.linkedin.com/in/arthur-monfort-098716310" target="_blank" class="btn btn-linkedin">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="ressources/fichier/CV_POPELIN_CELIA.pdf" download class="btn btn-download">
+                        <i class="fas fa-download"></i>
+                        Télécharger mon CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p><strong>Portfolio Arthur Monfort</strong> - Étudiant BUT Informatique</p>
+    <p>© 2025 - Tous droits réservés</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="projectModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle"></h2>
+            <button class="modal-close" aria-label="Fermer">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body" id="modalBody">
+            <!-- Contenu injecté par JS -->
+        </div>
+        <div class="modal-footer">
+            <a id="modalDetailLink" class="btn btn-primary">
+                <i class="fas fa-arrow-right"></i>
+                Page détaillée
+            </a>
+            <a id="modalLiveLink" class="btn btn-secondary" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+                Voir en ligne
+            </a>
+            <button class="btn btn-outline modal-close-btn">Fermer</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

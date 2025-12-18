@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Étudiant Cybersécurité</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ========== VARIABLES CSS ========== */
+        :root {
+            --primary-color: #3273dc;
+            --secondary-color: #363636;
+            --text-color: #4a4a4a;
+            --bg-light: #f5f5f5;
+            --transition: all 0.3s ease;
+        }
+
+        /* ========== LAYOUT GÉNÉRAL ========== */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            background: var(--bg-light);
+        }
+
+        .main-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+        }
+
+        /* ========== HEADER ========== */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .hero-body {
+            padding: 4rem 1.5rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .navbar-item {
+            transition: var(--transition);
+        }
+
+        .navbar-item:hover {
+            background-color: rgba(50, 115, 220, 0.1);
+        }
+
+        .navbar-item.is-active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* ========== SECTIONS ========== */
+        .section {
+            padding: 3rem 1.5rem;
+        }
+
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page-section.is-active {
+            display: block;
+        }
+
+        /* ========== CARDS ========== */
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .card-header-title {
+            color: white;
+        }
+
+        /* ========== PROJET CARDS ========== */
+        .project-card {
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            border-color: var(--primary-color);
+        }
+
+        .project-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* ========== TAGS ========== */
+        .tag {
+            margin: 0.25rem;
+        }
+
+        .tags {
+            margin-top: 1rem;
+        }
+
+        /* ========== BOUTONS ========== */
+        .button {
+            transition: var(--transition);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ========== INFO BOXES ========== */
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .info-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* ========== TIMELINE ========== */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3rem 1.5rem;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========== MODAL PROJECT ========== */
+        .modal-card {
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-card-body {
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media screen and (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* ========== SCROLL SMOOTH ========== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ========== PROGRESS BAR ========== */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--primary-color);
+            z-index: 9999;
+            transition: width 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+<div class="main-container">
+    <!-- Progress bar pour le scroll -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Hero Section -->
+    <section class="hero is-medium">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="hero-title">Votre Nom Prénom</h1>
+                <p class="hero-subtitle">Étudiant BUT Informatique - Passionné de Cybersécurité</p>
+                <p class="mt-4">
+                        <span class="icon-text">
+                            <span class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                            <span>IUT de Sète, Occitanie</span>
+                        </span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="navbar is-white" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-menu" id="navbarMenu">
+                <div class="navbar-start">
+                    <a class="navbar-item nav-link is-active" data-page="presentation">
+                        <span class="icon"><i class="fas fa-user"></i></span>
+                        <span>Présentation</span>
+                    </a>
+                    <a class="navbar-item nav-link" data-page="projets">
+                        <span class="icon"><i class="fas fa-folder-open"></i></span>
+                        <span>Projets</span>
+                    </a>
+                    <a class="navbar-item nav-link" data-page="cv">
+                        <span class="icon"><i class="fas fa-file-alt"></i></span>
+                        <span>CV & Liens</span>
+                    </a>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <a href="mailto:votre.email@exemple.fr" class="button is-primary">
+                            <span class="icon"><i class="fas fa-envelope"></i></span>
+                            <span>Contact</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-burger" id="navbarBurger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        <!-- PAGE PRÉSENTATION -->
+        <div id="presentation" class="page-section is-active">
+            <section class="section">
+                <div class="container">
+                    <h2 class="title is-2 has-text-centered mb-6">À propos de moi</h2>
+
+                    <!-- Biographie -->
+                    <div class="info-box">
+                        <h3 class="title is-4">
+                                <span class="icon-text">
+                                    <span class="icon has-text-primary"><i class="fas fa-graduation-cap"></i></span>
+                                    <span>Biographie</span>
+                                </span>
+                        </h3>
+                        <div class="content">
+                            <p>
+                                Actuellement étudiant en <strong>BUT Informatique à l'IUT de Sète</strong>, je me passionne pour l'informatique et plus particulièrement pour la <strong>cybersécurité</strong> depuis ma première année. Mon approche de l'apprentissage repose sur la pratique et l'expérimentation : j'aime comprendre en profondeur le fonctionnement des systèmes, des réseaux et des technologies que j'utilise.
+                            </p>
+                            <p>
+                                Curieux et persévérant, je n'hésite pas à me confronter à des problèmes complexes et à chercher des solutions de manière autonome. Cette démarche m'a permis de développer des compétences solides en administration système, virtualisation, développement et sécurité informatique.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Grille Centres d'intérêt + Parcours -->
+                    <div class="columns">
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-header">
+                                    <p class="card-header-title">
+                                        <span class="icon"><i class="fas fa-heart"></i></span>
+                                        <span class="ml-2">Centres d'intérêt</span>
+                                    </p>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content">
+                                        <ul>
+                                            <li><strong>Cybersécurité</strong> : veille technologique, étude des vulnérabilités, protection des systèmes</li>
+                                            <li><strong>Administration système</strong> : Linux, virtualisation, services réseau</li>
+                                            <li><strong>Hardware & Gaming</strong> : passion pour le matériel performant et l'optimisation</li>
+                                            <li><strong>Développement</strong> : création d'applications et automatisation</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-header">
+                                    <p class="card-header-title">
+                                        <span class="icon"><i class="fas fa-road"></i></span>
+                                        <span class="ml-2">Parcours de formation</span>
+                                    </p>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content">
+                                        <div class="timeline">
+                                            <div class="timeline-item">
+                                                <strong>2023 - Aujourd'hui</strong><br>
+                                                BUT Informatique, IUT de Sète
+                                            </div>
+                                            <div class="timeline-item">
+                                                <strong>Spécialisation</strong><br>
+                                                Cybersécurité (progressive)
+                                            </div>
+                                            <div class="timeline-item">
+                                                <strong>Compétences</strong><br>
+                                                Systèmes, réseaux, développement, BDD, sécurité
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vision pour le futur -->
+                    <div class="info-box mt-5">
+                        <h3 class="title is-4">
+                                <span class="icon-text">
+                                    <span class="icon has-text-primary"><i class="fas fa-rocket"></i></span>
+                                    <span>Vision pour le futur</span>
+                                </span>
+                        </h3>
+                        <div class="content">
+                            <p class="mb-4">
+                                <strong>Objectif à court terme :</strong> Valider mon BUT Informatique avec une spécialisation claire en cybersécurité, tout en multipliant les projets pratiques et les expériences techniques.
+                            </p>
+                            <p class="mb-3"><strong>Projets professionnels après le BUT :</strong></p>
+                            <ul>
+                                <li>Intégrer une <strong>école d'ingénieur</strong> spécialisée en cybersécurité ou systèmes et réseaux</li>
+                                <li>Poursuivre en <strong>Master Cybersécurité</strong> pour approfondir mes compétences en sécurité offensive et défensive</li>
+                                <li>Viser des métiers comme <strong>pentester</strong>, <strong>analyste en sécurité</strong>, <strong>administrateur sécurité</strong> ou <strong>ingénieur DevSecOps</strong></li>
+                                <li>Contribuer à la protection des systèmes d'information et à la sensibilisation aux enjeux de sécurité</li>
+                            </ul>
+                            <p class="mt-4">
+                                Mon ambition est de construire un parcours cohérent et solide dans le domaine de la cybersécurité, en alliant compétences techniques, esprit d'analyse et veille constante sur les nouvelles menaces et technologies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PAGE PROJETS -->
+        <div id="projets" class="page-section">
+            <section class="section">
+                <div class="container">
+                    <h2 class="title is-2 has-text-centered mb-6">Mes Projets</h2>
+                    <p class="subtitle has-text-centered mb-6">Cliquez sur un projet pour voir les détails</p>
+
+                    <div class="columns is-multiline" id="projectsGrid">
+                        <!-- Les projets seront injectés ici par JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PAGE CV & LIENS -->
+        <div id="cv" class="page-section">
+            <section class="section">
+                <div class="container">
+                    <h2 class="title is-2 has-text-centered mb-6">CV & Liens professionnels</h2>
+
+                    <!-- CV Download -->
+                    <div class="box has-background-light has-text-centered p-6 mb-5">
+                        <h3 class="title is-4 mb-4">
+                                <span class="icon-text">
+                                    <span class="icon has-text-primary"><i class="fas fa-file-pdf"></i></span>
+                                    <span>Télécharger mon CV</span>
+                                </span>
+                        </h3>
+                        <p class="mb-4">Retrouvez mon parcours complet, mes compétences et mes expériences.</p>
+                        <a href="cv.pdf" class="button is-primary is-large" download>
+                            <span class="icon"><i class="fas fa-download"></i></span>
+                            <span>Télécharger le CV (PDF)</span>
+                        </a>
+                    </div>
+
+                    <!-- Liens professionnels -->
+                    <div class="box has-background-light has-text-centered p-6 mb-5">
+                        <h3 class="title is-4 mb-4">
+                                <span class="icon-text">
+                                    <span class="icon has-text-primary"><i class="fas fa-link"></i></span>
+                                    <span>Mes liens professionnels</span>
+                                </span>
+                        </h3>
+                        <p class="mb-4">N'hésitez pas à consulter mes profils pour en savoir plus sur mon travail et mes projets.</p>
+                        <div class="buttons is-centered">
+                            <a href="https://www.linkedin.com/in/votre-profil" target="_blank" class="button is-info is-large">
+                                <span class="icon"><i class="fab fa-linkedin"></i></span>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/votre-profil" target="_blank" class="button is-dark is-large">
+                                <span class="icon"><i class="fab fa-github"></i></span>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Coordonnées -->
+                    <div class="columns">
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-header">
+                                    <p class="card-header-title">
+                                        <span class="icon"><i class="fas fa-address-card"></i></span>
+                                        <span class="ml-2">Coordonnées</span>
+                                    </p>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content">
+                                        <p>
+                                                <span class="icon-text">
+                                                    <span class="icon has-text-primary"><i class="fas fa-envelope"></i></span>
+                                                    <span><strong>Email :</strong> votre.email@exemple.fr</span>
+                                                </span>
+                                        </p>
+                                        <p>
+                                                <span class="icon-text">
+                                                    <span class="icon has-text-primary"><i class="fas fa-map-marker-alt"></i></span>
+                                                    <span><strong>Localisation :</strong> Sète, Occitanie</span>
+                                                </span>
+                                        </p>
+                                        <p>
+                                                <span class="icon-text">
+                                                    <span class="icon has-text-primary"><i class="fas fa-clock"></i></span>
+                                                    <span><strong>Disponibilité :</strong> Ouvert aux stages en cybersécurité, administration système et développement sécurisé</span>
+                                                </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p class="has-text-white">
+                <strong class="has-text-white">Portfolio</strong> réalisé avec HTML, CSS, JavaScript & Bulma
+            </p>
+            <p class="has-text-white-ter">
+                &copy; 2025 Votre Nom - Étudiant BUT Informatique - Passionné de Cybersécurité
+            </p>
+        </div>
+    </footer>
+</div>
+
+<!-- Modal pour afficher les détails d'un projet -->
+<div class="modal" id="projectModal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title" id="modalTitle"></p>
+            <button class="delete" aria-label="close" id="modalClose"></button>
+        </header>
+        <section class="modal-card-body" id="modalBody">
+            <!-- Contenu du projet injecté ici -->
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button" id="modalCloseBtn">Fermer</button>
+        </footer>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    // ========== DONNÉES DES PROJETS ==========
+    const projects = [
+        {
+            id: 1,
+            title: "Infrastructure Multi-VM",
+            type: "SAÉ - BUT Informatique",
+            duration: "3 semaines",
+            icon: "fa-server",
+            shortDesc: "Mise en place d'un environnement serveurs virtualisé complet",
+            context: "Ce projet s'inscrivait dans une SAÉ visant à nous familiariser avec l'administration système et la virtualisation. L'objectif était de concevoir et déployer une infrastructure complète composée de plusieurs machines virtuelles interconnectées, simulant un environnement d'entreprise. Nous devions mettre en place trois serveurs distincts : un serveur de base de données, un serveur web et un serveur de messagerie, en assurant leur configuration, leur sécurisation et leur interconnexion.",
+            objectives: [
+                "Création et configuration de 3 machines virtuelles sous Linux (Debian)",
+                "Installation et configuration de MySQL pour la gestion de bases de données",
+                "Mise en place d'un serveur web Apache avec PHP",
+                "Déploiement d'un serveur mail avec Postfix (SMTP) et Dovecot (IMAP)",
+                "Configuration réseau pour assurer la communication entre les VMs",
+                "Sécurisation des accès et des services (pare-feu, permissions)",
+                "Tests de connectivité et validation du fonctionnement global"
+            ],
+            learnings: {
+                technical: [
+                    "Maîtrise de VirtualBox pour la création et gestion de machines virtuelles",
+                    "Administration système Linux : gestion des utilisateurs, permissions, services systemd",
+                    "Configuration réseau avancée : interfaces, routage, pare-feu iptables",
+                    "Installation et configuration de services critiques (MySQL, Apache, Postfix, Dovecot)",
+                    "Résolution de problèmes de connectivité et débogage système"
+                ],
+                transversal: [
+                    "Lecture et compréhension de documentation technique complexe",
+                    "Méthodologie de résolution de problèmes par étapes",
+                    "Persévérance face aux erreurs de configuration",
+                    "Rigueur dans la documentation de mes manipulations"
+                ]
+            },
+            reflection: "Ce projet a été particulièrement formateur car il m'a confronté à la réalité de l'administration système. J'ai appris l'importance de la documentation, de la sauvegarde des configurations et de la méthodologie dans le débogage. Les difficultés rencontrées (notamment sur la configuration réseau) m'ont appris à être patient et systématique dans mes approches.",
+            technologies: ["VirtualBox", "Linux Debian", "MySQL", "Apache", "PHP", "Postfix", "Dovecot", "Réseaux"]
+        },
+        {
+            id: 2,
+            title: "Application Java/JavaFX",
+            type: "SAÉ - BUT Informatique",
+            duration: "4 semaines",
+            icon: "fa-code",
+            shortDesc: "Développement d'une application de gestion avec interface graphique",
+            context: "Dans le cadre de notre formation en programmation orientée objet, nous devions concevoir et développer une application complète avec interface graphique. Le projet consistait à créer un système de gestion en utilisant Java et JavaFX pour l'interface utilisateur. L'objectif pédagogique était de mettre en pratique les concepts de POO (héritage, polymorphisme, encapsulation) tout en découvrant la création d'interfaces graphiques modernes et la gestion de données persistantes.",
+            objectives: [
+                "Conception de l'architecture logicielle selon le modèle MVC (Modèle-Vue-Contrôleur)",
+                "Développement de l'interface graphique avec JavaFX et SceneBuilder",
+                "Implémentation des fonctionnalités CRUD (Create, Read, Update, Delete)",
+                "Gestion de la persistance des données (fichiers ou base de données)",
+                "Mise en place de la validation des saisies utilisateur",
+                "Gestion des erreurs et messages informatifs",
+                "Tests unitaires et débogage de l'application"
+            ],
+            learnings: {
+                technical: [
+                    "Programmation orientée objet avancée en Java",
+                    "Conception et développement d'interfaces graphiques avec JavaFX",
+                    "Application du pattern MVC pour séparer logique métier et interface",
+                    "Gestion des événements utilisateur et des contrôles graphiques",
+                    "Connexion à une base de données et exécution de requêtes SQL",
+                    "Utilisation d'Eclipse/IntelliJ et outils de débogage"
+                ],
+                transversal: [
+                    "Conception d'une architecture logicielle claire et maintenable",
+                    "Travail en équipe et gestion de versions avec Git",
+                    "Rédaction de documentation technique et utilisateur",
+                    "Gestion du temps et des priorités dans un projet de développement"
+                ]
+            },
+            reflection: "Ce projet m'a permis de comprendre l'importance d'une bonne architecture logicielle. Au début, j'ai eu tendance à tout mettre dans une seule classe, ce qui rendait le code difficile à maintenir. En appliquant le modèle MVC, j'ai constaté une amélioration significative de la clarté du code. J'ai également appris à anticiper les erreurs utilisateur et à gérer les exceptions de manière appropriée.",
+            technologies: ["Java", "JavaFX", "MVC", "SQL", "Git", "Eclipse"]
+        },
+        {
+            id: 3,
+            title: "Scripts Bash d'administration",
+            type: "Projet personnel",
+            duration: "2 semaines",
+            icon: "fa-terminal",
+            shortDesc: "Automatisation de tâches système avec Bash",
+            context: "Après avoir suivi des cours sur les systèmes d'exploitation UNIX/Linux, j'ai souhaité approfondir mes compétences en administration système en créant mes propres scripts d'automatisation. L'objectif était de faciliter des tâches répétitives d'administration et de mieux comprendre le fonctionnement interne du système. Ce projet personnel m'a permis d'explorer en profondeur le scripting Bash, la gestion des processus, les permissions et la sécurité des scripts.",
+            objectives: [
+                "Création de scripts de sauvegarde automatique de fichiers et bases de données",
+                "Script de monitoring système (CPU, RAM, disque, réseau)",
+                "Automatisation de la création et configuration d'utilisateurs",
+                "Script de nettoyage et maintenance système",
+                "Mise en place de logs détaillés pour chaque script",
+                "Configuration de tâches cron pour l'exécution automatique",
+                "Gestion des erreurs et notifications par email"
+            ],
+            learnings: {
+                technical: [
+                    "Maîtrise du langage Bash et des commandes Linux avancées",
+                    "Gestion des entrées/sorties, redirections et pipes",
+                    "Manipulation de fichiers et traitement de texte (sed, awk, grep)",
+                    "Gestion des processus et services systemd",
+                    "Configuration de cron et automatisation de tâches",
+                    "Sécurisation des scripts (permissions, variables d'environnement)",
+                    "Debugging et gestion des erreurs en Bash"
+                ],
+                transversal: [
+                    "Autonomie dans l'apprentissage et la recherche de solutions",
+                    "Lecture de documentation technique (man pages, forums)",
+                    "Approche méthodique dans le débogage de scripts",
+                    "Importance des tests avant mise en production"
+                ]
+            },
+            reflection: "Ce projet m'a fait réaliser la puissance de l'automatisation en administration système. J'ai appris qu'un bon script doit être robuste, bien

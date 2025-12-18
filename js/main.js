@@ -1,5 +1,4 @@
-
-// Données des projets
+// ==================== DONNÉES DES PROJETS ====================
 const projectsData = [
     {
         title: "SAÉ Client PHP",
@@ -53,77 +52,74 @@ const projectsData = [
     }
 ];
 
-// Gestion des onglets
+// ==================== GESTION DES ONGLETS ====================
 function initTabs() {
-    const tabs = document.querySelectorAll('.tabs li');
+    const tabButtons = document.querySelectorAll('.tab-button');
     const formationsTimeline = document.getElementById('formations-timeline');
     const experiencesTimeline = document.getElementById('experiences-timeline');
 
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function(e) {
-            e.preventDefault();
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Retirer la classe active de tous les boutons
+            tabButtons.forEach(btn => btn.classList.remove('active'));
 
-            // Retirer la classe active de tous les onglets
-            tabs.forEach(t => t.classList.remove('is-active'));
-
-            // Ajouter la classe active à l'onglet cliqué
-            this.classList.add('is-active');
+            // Ajouter la classe active au bouton cliqué
+            this.classList.add('active');
 
             // Afficher/masquer les timelines
             const tabName = this.getAttribute('data-tab');
             if (tabName === 'formations') {
-                formationsTimeline.classList.remove('is-hidden');
-                experiencesTimeline.classList.add('is-hidden');
+                formationsTimeline.classList.remove('hidden');
+                experiencesTimeline.classList.add('hidden');
             } else if (tabName === 'experiences') {
-                formationsTimeline.classList.add('is-hidden');
-                experiencesTimeline.classList.remove('is-hidden');
+                formationsTimeline.classList.add('hidden');
+                experiencesTimeline.classList.remove('hidden');
             }
         });
     });
 }
 
-// Gestion de la modal
+// ==================== GESTION DE LA MODAL ====================
 function initProjectModal() {
     const modal = document.getElementById('projectModal');
     const projectCards = document.querySelectorAll('.project-card');
-    const closeButtons = modal.querySelectorAll('.delete, .modal-close, .modal-background');
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const closeButtons = document.querySelectorAll('.modal-close, .modal-close-btn');
 
+    // Ouvrir la modal au clic sur une carte
     projectCards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            e.preventDefault();
-
+        card.addEventListener('click', function() {
             const projectIndex = parseInt(this.getAttribute('data-project'));
             const project = projectsData[projectIndex];
 
-            // Remplir la modal
+            // Remplir la modal avec les données du projet
             document.getElementById('modalTitle').textContent = project.title;
             document.getElementById('modalBody').innerHTML = `
-                <div class="content">
-                    <h3 class="title is-4" style="color: #2c3e50;">Type : ${project.type}</h3>
-                    <p class="is-size-5"><strong>${project.description}</strong></p>
-
-                    <h4 class="title is-5 mt-5" style="color: #2c3e50;">Contexte</h4>
-                    <p>${project.context}</p>
-
-                    <h4 class="title is-5 mt-4" style="color: #2c3e50;">Objectifs réalisés</h4>
-                    <ul>
-                        ${project.objectifs.map(obj => `<li>${obj}</li>`).join('')}
-                    </ul>
-
-                    <h4 class="title is-5 mt-4" style="color: #2c3e50;">Technologies utilisées</h4>
-                    <div class="tags">
-                        ${project.technologies.map(tech => `<span class="tag is-dark is-medium">${tech}</span>`).join('')}
-                    </div>
+                <h3>Type : ${project.type}</h3>
+                <p><strong>${project.description}</strong></p>
+                
+                <h4>Contexte</h4>
+                <p>${project.context}</p>
+                
+                <h4>Objectifs réalisés</h4>
+                <ul>
+                    ${project.objectifs.map(obj => `<li>${obj}</li>`).join('')}
+                </ul>
+                
+                <h4>Technologies utilisées</h4>
+                <div class="tags">
+                    ${project.technologies.map(tech => `<span class="tag tag-primary">${tech}</span>`).join('')}
                 </div>
             `;
 
+            // Configurer les liens
             const detailLink = document.getElementById('modalDetailLink');
             const liveLink = document.getElementById('modalLiveLink');
 
             detailLink.href = project.detailLink;
             liveLink.href = project.liveLink;
 
-            // Masquer le bouton si pas de lien
+            // Masquer les boutons si pas de lien
             if (!project.detailLink || project.detailLink === '#') {
                 detailLink.style.display = 'none';
             } else {
@@ -136,23 +132,68 @@ function initProjectModal() {
                 liveLink.style.display = 'inline-flex';
             }
 
-            modal.classList.add('is-active');
-            document.documentElement.classList.add('is-clipped');
+            // Afficher la modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Empêcher le scroll
         });
     });
 
+    // Fermer la modal
+    const closeModal = () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Réactiver le scroll
+    };
+
     closeButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
+        btn.addEventListener('click', closeModal);
+    });
+
+    modalOverlay.addEventListener('click', closeModal);
+
+    // Fermer avec la touche Échap
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+// ==================== SMOOTH SCROLL ====================
+function initSmoothScroll() {
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
-            modal.classList.remove('is-active');
-            document.documentElement.classList.remove('is-clipped');
+
+            // Retirer la classe active de tous les liens
+            navLinks.forEach(l => l.classList.remove('active'));
+
+            // Ajouter la classe active au lien cliqué
+            this.classList.add('active');
+
+            // Scroll vers la section
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetSection.offsetTop - navbarHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 }
 
-// Initialisation
+// ==================== INITIALISATION ====================
 document.addEventListener('DOMContentLoaded', () => {
     initTabs();
     initProjectModal();
-    console.log('Portfolio chargé ! 🚀');
+    initSmoothScroll();
+
+    console.log('✅ Portfolio chargé avec succès !');
 });

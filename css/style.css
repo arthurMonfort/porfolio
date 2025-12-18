@@ -1,26 +1,193 @@
+/* ==================== VARIABLES ==================== */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --text-color: #333;
+    --text-light: #666;
+    --bg-color: #ecf0f1;
+    --white: #ffffff;
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);
+    --shadow-hover: 0 4px 16px rgba(0,0,0,0.15);
+    --transition: all 0.3s ease;
+}
+
+/* ==================== RESET & BASE ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background: #ecf0f1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-.hero.is-primary {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* TIMELINE */
+/* ==================== HERO ==================== */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.hero-location {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.hero-location i {
+    margin-right: 5px;
+}
+
+/* ==================== NAVBAR ==================== */
+.navbar {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+}
+
+.nav-link {
+    padding: 18px 25px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: var(--transition);
+    border-bottom: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link:hover {
+    background: rgba(52, 73, 94, 0.05);
+    color: var(--primary-color);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.nav-link i {
+    font-size: 1.1rem;
+}
+
+/* ==================== SECTIONS ==================== */
+.section {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.section-title i {
+    margin-right: 10px;
+}
+
+/* ==================== BOX ==================== */
+.box {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.box p {
+    margin-bottom: 15px;
+}
+
+.box h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ==================== TABS ==================== */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 40px;
+}
+
+.tab-button {
+    padding: 15px 40px;
+    background: var(--white);
+    border: 2px solid #ddd;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tab-button:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.tab-button:last-child {
+    border-radius: 0 8px 8px 0;
+    border-left: none;
+}
+
+.tab-button:hover {
+    background: rgba(52, 73, 94, 0.05);
+}
+
+.tab-button.active {
+    background: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+/* ==================== TIMELINE ==================== */
 .timeline-container {
-    padding: 2rem 0;
     max-width: 800px;
     margin: 0 auto;
 }
 
 .timeline {
     position: relative;
-    padding-left: 3rem;
+    padding-left: 50px;
 }
 
 .timeline::before {
@@ -35,93 +202,407 @@ body {
 
 .timeline-item {
     position: relative;
-    padding-bottom: 2rem;
+    margin-bottom: 40px;
 }
 
 .timeline-marker {
     position: absolute;
-    left: -3.6rem;
+    left: -59px;
     top: 0;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background: var(--primary-color);
-    border: 4px solid white;
-    box-shadow: 0 0 0 3px var(--primary-color);
+    border: 4px solid var(--white);
+    box-shadow: 0 0 0 4px var(--primary-color);
 }
 
 .timeline-content {
-    transition: transform 0.3s ease;
+    background: var(--white);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
 .timeline-content:hover {
     transform: translateX(5px);
+    box-shadow: var(--shadow-hover);
 }
 
-.timeline-content .heading {
+.timeline-date {
     color: var(--primary-color);
     font-weight: bold;
-    font-size: 0.875rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
 }
 
-/* TABS */
-.tabs.is-boxed li.is-active a {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: white !important;
+.timeline-content h3 {
+    color: var(--secondary-color);
+    margin: 10px 0;
 }
 
-.tabs a {
-    transition: all 0.3s ease;
-    color: var(--primary-color);
+/* ==================== PROJECTS GRID ==================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
 }
 
-.tabs a:hover {
-    background-color: rgba(44, 62, 80, 0.1);
-}
-
-/* PROJET CARDS */
 .project-card {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
     cursor: pointer;
-    transition: all 0.3s ease;
-    height: 100%;
     border: 2px solid transparent;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow-hover);
     border-color: var(--primary-color);
 }
 
-.project-card .card-footer-item {
+.project-header {
+    padding: 20px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+}
+
+.project-header h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.project-body {
+    padding: 20px;
+}
+
+.project-body p {
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.project-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+}
+
+.btn-details {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid var(--primary-color);
     color: var(--primary-color);
-    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
-.project-card .card-footer-item:hover {
-    background-color: rgba(44, 62, 80, 0.1);
+.btn-details:hover {
+    background: var(--primary-color);
+    color: var(--white);
 }
 
-/* MODAL */
-.modal-card {
+/* ==================== TAGS ==================== */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.tag {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    background: #e0e0e0;
+    color: var(--text-color);
+}
+
+.tag-primary {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.tag-info {
+    background: var(--accent-color);
+    color: var(--white);
+}
+
+.tag-success {
+    background: #27ae60;
+    color: var(--white);
+}
+
+/* ==================== CONTACT ==================== */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info i {
+    color: var(--primary-color);
+    width: 20px;
+}
+
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ==================== BUTTONS ==================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-linkedin {
+    background: #0077b5;
+    color: var(--white);
+}
+
+.btn-linkedin:hover {
+    background: #005885;
+    transform: translateY(-2px);
+}
+
+.btn-download {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-download:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--secondary-color);
+}
+
+.btn-secondary {
+    background: var(--accent-color);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background: #2980b9;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+/* ==================== MODAL ==================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    position: relative;
+    background: var(--white);
+    border-radius: 8px;
     max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 1001;
+    animation: modalSlideIn 0.3s ease;
 }
 
-/* FOOTER */
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    padding: 25px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.modal-body h3,
+.modal-body h4 {
+    color: var(--primary-color);
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.modal-body ul {
+    margin-left: 25px;
+}
+
+.modal-body li {
+    margin-bottom: 10px;
+}
+
+.modal-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* ==================== FOOTER ==================== */
 .footer {
-    background: #363636;
-    color: white;
-    margin-top: 4rem;
+    background: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
 }
 
-/* RESPONSIVE */
+.footer p {
+    margin: 5px 0;
+}
+
+/* ==================== UTILITIES ==================== */
+.hidden {
+    display: none !important;
+}
+
+/* ==================== RESPONSIVE ==================== */
 @media screen and (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .navbar .container {
+        flex-wrap: wrap;
+    }
+
+    .nav-link {
+        flex: 1 1 45%;
+        justify-content: center;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
     .timeline {
-        padding-left: 2rem;
+        padding-left: 30px;
     }
 
     .timeline-marker {
-        left: -2.6rem;
+        left: -39px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tab-button {
+        border-radius: 0 !important;
+        border-left: 2px solid #ddd !important;
+    }
+
+    .tab-button:first-child {
+        border-radius: 8px 8px 0 0 !important;
+    }
+
+    .tab-button:last-child {
+        border-radius: 0 0 8px 8px !important;
     }
 }
