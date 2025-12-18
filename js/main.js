@@ -10,45 +10,39 @@ const projectsData = [
             "Conception de la base de données MySQL",
             "Développement en PHP avec architecture MVC",
             "Interface responsive avec HTML/CSS/JavaScript",
-            "Gestion d'authentification sécurisée",
-            "Tests et validation avec le client"
+            "Gestion d'authentification sécurisée"
         ],
-        technologies: ["PHP", "MySQL", "HTML/CSS", "JavaScript", "Bootstrap"],
-        detailLink: "src/view/projet1.html",
-        liveLink: "https://sae-client.herokuapp.com/"
+        technologies: ["PHP", "MySQL", "HTML/CSS", "JavaScript"],
+        detailLink: "projets/sae-php.html",
+        liveLink: "https://webinfo.iutmontp.univ-montp2.fr/~larcherc/democr@/web/controleurFrontal.php"
     },
     {
         title: "Nuit de l'Info",
-        type: "Hackathon - Développement Web",
+        type: "Hackathon",
         description: "Site web réalisé lors du hackathon national sous contrainte de temps.",
-        context: "Participation à la Nuit de l'Info, un hackathon national réunissant des étudiants en informatique. Intégration rapide dans une équipe de développeurs pour créer un site web complet en une nuit.",
+        context: "La Nuit de l'Info est un défi national qui dure toute une nuit (du coucher au lever du soleil). L'objectif était de répondre à une problématique d'obsolescence programmée via une plateforme web interactive.",
         objectifs: [
-            "Intégration rapide dans une nouvelle équipe",
-            "Développement sous pression temporelle",
-            "Création d'un site web fonctionnel",
-            "Gestion collaborative avec Git",
-            "Présentation du projet devant un jury"
+            "Intégration rapide en équipe",
+            "Gestion du stress et des délais",
+            "Utilisation intensive de Git",
+            "Mise en place d'une interface utilisateur intuitive"
         ],
-        technologies: ["HTML", "CSS", "JavaScript", "Git", "Travail d'équipe"],
-        detailLink: "#",
-        liveLink: "#"
+        technologies: ["REACT", "HTML/CSS", "Git"],
+        detailLink: "projets/nuit-info.html",
+        liveLink: null
     },
     {
         title: "SAÉ Pokémon TCG",
         type: "Application Java",
         description: "Application de gestion de cartes Pokémon développée en Java.",
-        context: "Projet de développement d'une application desktop pour gérer une collection de cartes Pokémon TCG. Utilisation de JavaFX pour l'interface graphique et SQLite pour la persistance des données.",
+        context: "Conception d'un logiciel de bureau permettant aux collectionneurs de suivre l'évolution de leur inventaire de cartes Pokémon.",
         objectifs: [
-            "Conception orientée objet en Java",
-            "Interface graphique avec JavaFX",
-            "Base de données SQLite",
-            "Système de recherche et filtrage",
-            "Gestion de collection (CRUD)",
-            "Export et import de données"
+            "Développement Java orienté objet",
+            "Interface graphique JavaFX",
         ],
-        technologies: ["Java", "JavaFX", "SQLite", "POO", "MVC"],
-        detailLink: "#",
-        liveLink: "#"
+        technologies: ["Java", "JavaFX"],
+        detailLink: "projets/pokemon-tcg.html",
+        liveLink: null
     }
 ];
 
@@ -60,18 +54,14 @@ function initTabs() {
 
     tabButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Retirer la classe active de tous les boutons
             tabButtons.forEach(btn => btn.classList.remove('active'));
-
-            // Ajouter la classe active au bouton cliqué
             this.classList.add('active');
 
-            // Afficher/masquer les timelines
             const tabName = this.getAttribute('data-tab');
             if (tabName === 'formations') {
                 formationsTimeline.classList.remove('hidden');
                 experiencesTimeline.classList.add('hidden');
-            } else if (tabName === 'experiences') {
+            } else {
                 formationsTimeline.classList.add('hidden');
                 experiencesTimeline.classList.remove('hidden');
             }
@@ -86,102 +76,69 @@ function initProjectModal() {
     const modalOverlay = document.querySelector('.modal-overlay');
     const closeButtons = document.querySelectorAll('.modal-close, .modal-close-btn');
 
-    // Ouvrir la modal au clic sur une carte
     projectCards.forEach(card => {
         card.addEventListener('click', function() {
             const projectIndex = parseInt(this.getAttribute('data-project'));
             const project = projectsData[projectIndex];
 
-            // Remplir la modal avec les données du projet
+            // Remplissage de la modal
             document.getElementById('modalTitle').textContent = project.title;
             document.getElementById('modalBody').innerHTML = `
                 <h3>Type : ${project.type}</h3>
                 <p><strong>${project.description}</strong></p>
-                
                 <h4>Contexte</h4>
                 <p>${project.context}</p>
-                
                 <h4>Objectifs réalisés</h4>
                 <ul>
                     ${project.objectifs.map(obj => `<li>${obj}</li>`).join('')}
                 </ul>
-                
-                <h4>Technologies utilisées</h4>
+                <h4>Technologies</h4>
                 <div class="tags">
                     ${project.technologies.map(tech => `<span class="tag tag-primary">${tech}</span>`).join('')}
                 </div>
             `;
 
-            // Configurer les liens
+            // Gestion des boutons (Détails et Live)
             const detailLink = document.getElementById('modalDetailLink');
             const liveLink = document.getElementById('modalLiveLink');
 
             detailLink.href = project.detailLink;
-            liveLink.href = project.liveLink;
+            detailLink.style.display = 'inline-flex';
 
-            // Masquer les boutons si pas de lien
-            if (!project.detailLink || project.detailLink === '#') {
-                detailLink.style.display = 'none';
-            } else {
-                detailLink.style.display = 'inline-flex';
-            }
-
-            if (!project.liveLink || project.liveLink === '#') {
-                liveLink.style.display = 'none';
-            } else {
+            if (project.liveLink && project.liveLink !== "#") {
+                liveLink.href = project.liveLink;
                 liveLink.style.display = 'inline-flex';
+            } else {
+                liveLink.style.display = 'none';
             }
 
-            // Afficher la modal
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Empêcher le scroll
+            document.body.style.overflow = 'hidden';
         });
     });
 
-    // Fermer la modal
     const closeModal = () => {
         modal.classList.remove('active');
-        document.body.style.overflow = ''; // Réactiver le scroll
+        document.body.style.overflow = '';
     };
 
-    closeButtons.forEach(btn => {
-        btn.addEventListener('click', closeModal);
-    });
-
+    closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
     modalOverlay.addEventListener('click', closeModal);
-
-    // Fermer avec la touche Échap
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-        }
-    });
 }
 
 // ==================== SMOOTH SCROLL ====================
 function initSmoothScroll() {
     const navLinks = document.querySelectorAll('.nav-link');
-
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-
-            // Retirer la classe active de tous les liens
-            navLinks.forEach(l => l.classList.remove('active'));
-
-            // Ajouter la classe active au lien cliqué
-            this.classList.add('active');
-
-            // Scroll vers la section
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
 
             if (targetSection) {
                 const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = targetSection.offsetTop - navbarHeight;
-
                 window.scrollTo({
-                    top: targetPosition,
+                    top: targetSection.offsetTop - navbarHeight,
                     behavior: 'smooth'
                 });
             }
@@ -194,6 +151,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initTabs();
     initProjectModal();
     initSmoothScroll();
-
-    console.log('✅ Portfolio chargé avec succès !');
 });
