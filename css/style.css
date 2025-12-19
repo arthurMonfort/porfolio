@@ -243,9 +243,11 @@ body {
 }
 
 /* ==================== PROJECTS GRID ==================== */
+/* ==================== PROJECTS GRID ==================== */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* On force 2 colonnes sur écran large */
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     margin-top: 30px;
 }
@@ -258,6 +260,11 @@ body {
     transition: var(--transition);
     cursor: pointer;
     border: 2px solid transparent;
+
+    /* On transforme la carte en conteneur flexible vertical */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Toutes les cartes auront la même hauteur */
 }
 
 .project-card:hover {
@@ -272,13 +279,10 @@ body {
     color: var(--white);
 }
 
-.project-header h3 {
-    font-size: 1.4rem;
-    font-weight: 500;
-}
-
 .project-body {
     padding: 20px;
+    /* Ce paramètre dit au corps de prendre tout l'espace vide */
+    flex-grow: 1;
 }
 
 .project-body p {
@@ -289,6 +293,8 @@ body {
 .project-footer {
     padding: 15px 20px;
     border-top: 1px solid #eee;
+    /* Le footer se collera toujours tout en bas de la carte */
+    margin-top: auto;
 }
 
 .btn-details {
@@ -340,6 +346,11 @@ body {
 
 .tag-success {
     background: #27ae60;
+    color: var(--white);
+}
+
+.tag-purple {
+    background: #8e44ad;
     color: var(--white);
 }
 

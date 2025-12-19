@@ -43,27 +43,50 @@ const projectsData = [
         technologies: ["Java", "JavaFX"],
         detailLink: "projets/pokemon-tcg.html",
         liveLink: null
+    },
+    {
+        title: "TD PHP cours",
+        type: "Développement Web",
+        description: "Site web réalisé lors du BUT informatique sur le back-end d'un site",
+        context: "Conception d'un site web de covoiturage gérant des trajets et des utilisateurs ",
+        objectifs: [
+            "Conception de la base de données MySQL",
+            "Développement en PHP avec architecture MVC",
+            "Gestion d'authentification sécurisée"
+        ],
+        technologies: ["PHP", "HTML/CSS"],
+        detailLink: "projets/td-php.html",
+        liveLink: null
     }
 ];
 
 // ==================== GESTION DES ONGLETS ====================
 function initTabs() {
     const tabButtons = document.querySelectorAll('.tab-button');
-    const formationsTimeline = document.getElementById('formations-timeline');
-    const experiencesTimeline = document.getElementById('experiences-timeline');
+    // On sélectionne tous les conteneurs de timeline
+    const timelines = document.querySelectorAll('.timeline-container');
 
     tabButtons.forEach(button => {
         button.addEventListener('click', function() {
+            // Gérer l'apparence des boutons
             tabButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
 
+            //  Gérer l'affichage des contenus
             const tabName = this.getAttribute('data-tab');
-            if (tabName === 'formations') {
-                formationsTimeline.classList.remove('hidden');
-                experiencesTimeline.classList.add('hidden');
-            } else {
-                formationsTimeline.classList.add('hidden');
-                experiencesTimeline.classList.remove('hidden');
+
+            // On cache toutes les timelines
+            timelines.forEach(timeline => timeline.classList.add('hidden'));
+
+            // On affiche celle qui correspond au data-tab
+            // "formations" -> id="formations-timeline"
+            // "experiences" -> id="experiences-timeline"
+            // "compétences" -> id="competences-timeline"
+            const targetId = tabName === 'compétences' ? 'competences-timeline' : `${tabName}-timeline`;
+            const targetTimeline = document.getElementById(targetId);
+
+            if (targetTimeline) {
+                targetTimeline.classList.remove('hidden');
             }
         });
     });
