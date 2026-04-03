@@ -3,19 +3,19 @@ const projectsData = [
     {
         title: "SAÉ Client PHP",
         type: "SAÉ · Développement Web · S3",
-        badge: "En équipe de 4 · ~6 semaines",
+        badge: "En équipe de 5 · ~12 semaines",
         description: "Réalisation d'une application web complète selon les besoins d'un client réel.",
-        context: "Dans le cadre d'une SAÉ du semestre 3, nous devions développer une application web en PHP pour un client réel de l'IUT. Le projet partait d'un cahier des charges à analyser : nous avons conçu la base de données, mis en place l'architecture et développé toutes les fonctionnalités en respectant les délais fixés. Travailler avec un vrai client nous a appris à reformuler ses besoins techniques et à gérer ses retours.",
-        contexteDetail: "Durée : ~6 semaines — Équipe de 4 — Contrainte : cahier des charges client, délais imposés",
+        context: "Dans le cadre d'une SAÉ du semestre 3, nous devions développer une application web en PHP pour un client réel de l'IUT. Le projet couvrait l'intégralité du cycle : analyse du cahier des charges, modélisation de la base de données, développement en architecture MVC et déploiement sur le serveur de l'IUT via SSH.",
+        contexteDetail: "Durée : ~12 semaines — Équipe de 5 — Contrainte : cahier des charges client, délais imposés, déploiement réel",
         objectifs: [
             "Analyse du cahier des charges et modélisation UML de la base de données",
-            "Mise en place d'une architecture MVC (Modèle-Vue-Contrôleur) en PHP pur",
-            "Développement d'un système d'authentification sécurisé (sessions, hashage)",
+            "Mise en place d'une architecture MVC en PHP pur",
+            "Système d'authentification sécurisé (sessions, hashage, protection CSRF)",
             "Interface responsive avec HTML/CSS/JavaScript",
             "Déploiement sur le serveur IUT via SSH"
         ],
         competences: {
-            techniques: ["PHP 8", "MySQL", "Architecture MVC", "HTML/CSS", "JavaScript", "SSH"],
+            techniques: ["PHP 8", "MySQL", "Architecture MVC", "HTML/CSS", "JavaScript", "SSH · Déploiement"],
             humaines: ["Communication client", "Travail en équipe", "Gestion des délais", "Documentation"]
         },
         technologies: ["PHP", "MySQL", "HTML/CSS", "JavaScript"],
@@ -23,66 +23,65 @@ const projectsData = [
         liveLink: "https://webinfo.iutmontp.univ-montp2.fr/~larcherc/democr@/web/controleurFrontal.php"
     },
     {
-        title: "Nuit de l'Info 2024",
+        title: "Nuit de l'Info 2025",
         type: "Hackathon National",
-        badge: "Équipe de 5 · 16 heures",
+        badge: "Équipe de 10 · 16 heures",
         description: "Plateforme web interactive réalisée lors du hackathon national sous contrainte de temps extrême.",
-        context: "La Nuit de l'Info est un défi national qui dure toute une nuit, du coucher au lever du soleil. Notre équipe de 5 étudiants devait répondre à une problématique de santé publique : sensibiliser les jeunes à l'importance de prendre soin de leur santé mentale. Nous avons conçu et développé une plateforme web interactive, en gérant à la fois l'aspect technique et la coordination du travail en temps réel.",
-        contexteDetail: "Durée : 16h en continu — Équipe de 5 — Contrainte : deadline fixe, travail en parallèle sur Git",
+        context: "La Nuit de l'Info est un défi national du coucher au lever du soleil. Notre équipe devait répondre à une problématique de santé publique en concevant une plateforme React en 16h. Répartition des tâches, gestion des conflits Git en temps réel, décisions sous pression : une expérience formatrice hors du commun.",
+        contexteDetail: "Durée : 16h en continu — Équipe de 10 — Contrainte : deadline fixe et immuable, travail en parallèle sur Git",
         objectifs: [
-            "Conception rapide de l'architecture et répartition des tâches",
-            "Développement front-end avec React sous contrainte de temps",
-            "Gestion des conflits Git lors des fusions de code en équipe",
-            "Mise en place d'une interface utilisateur intuitive et responsive",
-            "Présentation du projet en fin de nuit"
+            "Cadrage rapide et répartition des tâches en sous-équipes",
+            "Développement React avec composants réutilisables et routing",
+            "Gestion Git intensive : branches, pull requests, résolution de conflits",
+            "Design d'interface cohérent sous contrainte de temps"
         ],
         competences: {
-            techniques: ["React", "Git/GitHub", "HTML/CSS"],
-            humaines: ["Gestion du stress", "Agilité", "Communication en équipe", "Priorisation"]
+            techniques: ["React", "HTML/CSS", "Git / GitHub", "UI/UX Design"],
+            humaines: ["Gestion du stress", "Agilité", "Communication d'équipe", "Priorisation"]
         },
         technologies: ["React", "HTML/CSS", "Git"],
         detailLink: "projets/nuit-info.html",
-        liveLink: null
+        liveLink: "https://ndi-tous-marthau.ewenphilippot.fr"
     },
     {
         title: "SAÉ Pokémon TCG",
         type: "SAÉ · Application Java · S3",
-        badge: "En binôme · ~4 semaines",
+        badge: "En binôme · ~6 semaines",
         description: "Application desktop de gestion de collection de cartes Pokémon développée en Java.",
-        context: "Ce projet avait pour objectif de concevoir un logiciel de bureau permettant aux collectionneurs de gérer leur inventaire de cartes Pokémon TCG. Le défi principal était de produire une interface graphique fluide avec JavaFX tout en appliquant rigoureusement les principes de la programmation orientée objet : héritage, encapsulation, polymorphisme.",
-        contexteDetail: "Durée : ~4 semaines — En binôme — Contrainte : respect strict des concepts POO",
+        context: "Ce projet visait à concevoir un logiciel de bureau permettant à des collectionneurs de gérer leur inventaire de cartes Pokémon TCG. Le défi : appliquer rigoureusement les principes POO tout en produisant une interface graphique ergonomique avec JavaFX.",
+        contexteDetail: "Durée : ~6 semaines — En binôme — Contrainte : respect strict des concepts POO, interface graphique obligatoire",
         objectifs: [
-            "Conception orientée objet : hiérarchie de classes, interfaces, design patterns",
-            "Développement de l'interface graphique avec JavaFX",
-            "Persistance des données (fichiers)",
-            "Gestion des erreurs et validation des saisies utilisateur"
+            "Conception orientée objet : hiérarchie de classes, interfaces, principes SOLID",
+            "Interface graphique JavaFX avec SceneBuilder",
+            "Architecture MVC : modèle, vues FXML, contrôleurs",
+            "Persistance des données entre sessions"
         ],
         competences: {
-            techniques: ["Java", "JavaFX", "POO", "MVC"],
-            humaines: ["Rigueur", "Conception logicielle", "Travail en binôme"]
+            techniques: ["Java", "JavaFX", "POO avancée", "Architecture MVC", "SceneBuilder"],
+            humaines: ["Rigueur de conception", "Travail en binôme", "Débogage méthodique"]
         },
         technologies: ["Java", "JavaFX"],
         detailLink: "projets/pokemon-tcg.html",
         liveLink: null
     },
     {
-        title: "TD PHP — Covoiturage",
-        type: "Cours · Développement Web · S3",
-        badge: "Individuel · Tout le semestre",
-        description: "Site web de covoiturage complet développé au fil des séances de TD du semestre 3.",
-        context: "Tout au long du semestre 3, les TD de développement web nous ont permis de construire itérativement un site de covoiturage complet. Chaque séance apportait de nouvelles fonctionnalités : gestion des utilisateurs, des trajets, système d'inscription aux trajets, panneau d'administration. Ce projet m'a permis d'intégrer progressivement les bonnes pratiques du développement PHP en architecture MVC.",
-        contexteDetail: "Durée : tout le S3 (12 séances) — Individuel — Contrainte : progression guidée par les TD",
+        title: "TD PHP & Symfony",
+        type: "Cours · Développement Web · S3 & S4",
+        badge: "Individuel · Sur 2 semestres",
+        description: "Progression du PHP artisanal (MVC) aux composants professionnels Symfony et au moteur de gabarit Twig.",
+        context: "En S3, construction itérative d'un site de covoiturage en PHP pur avec architecture MVC. En S4, montée en puissance vers une approche MVCS avec le composant de routage Symfony et les vues Twig — découverte d'un langage de gabarit professionnel avec héritage de templates, blocs et filtres.",
+        contexteDetail: "Durée : S3 & S4 (progressif) — Individuel — Contrainte : progression notée, complexité croissante",
         objectifs: [
-            "Conception et évolution de la base de données MySQL (entités, associations)",
-            "Mise en place progressive d'une architecture MVC en PHP",
-            "Gestion sécurisée de l'authentification et des sessions",
-            "Fonctionnalités CRUD complètes pour les trajets et utilisateurs"
+            "S3 : MVC artisanal, CRUD complet, authentification sécurisée en PHP pur",
+            "S4 : Architecture MVCS avec couche Service isolant la logique métier",
+            "S4 : Routage Symfony (composant symfony/routing) déclaratif et propre",
+            "S4 : Vues Twig — héritage de templates, blocs, filtres, composants partiels"
         ],
         competences: {
-            techniques: ["PHP", "MySQL", "Architecture MVC", "HTML/CSS"],
-            humaines: ["Autonomie", "Apprentissage progressif", "Rigueur"]
+            techniques: ["PHP MVC / MVCS", "Symfony (composants)", "Twig (gabarit)", "MySQL", "HTML/CSS"],
+            humaines: ["Autonomie", "Apprentissage progressif", "Rigueur architecturale"]
         },
-        technologies: ["PHP", "MySQL", "HTML/CSS"],
+        technologies: ["PHP", "Symfony", "Twig", "MySQL"],
         detailLink: "projets/td-php.html",
         liveLink: null
     },
@@ -90,43 +89,65 @@ const projectsData = [
         title: "SAÉ Noodle",
         type: "SAÉ · Refonte applicative · S4",
         badge: "En équipe · ~8 semaines",
-        description: "Refonte complète d'une application existante : analyse de l'existant, nouvelles fonctionnalités, amélioration UX.",
-        context: "La SAÉ du semestre 4 nous a placés dans la situation d'une équipe de développeurs reprenant un projet existant. Baptisée « Noodle », l'application devait être analysée, documentée, puis enrichie de nouvelles fonctionnalités. Ce projet m'a confronté à la réalité du développement en contexte professionnel : comprendre du code que l'on n'a pas écrit, rédiger des spécifications et planifier les livraisons.",
-        contexteDetail: "Durée : ~8 semaines — Équipe — Contrainte : reprise de code existant, rédaction de spécifications",
+        description: "Refonte d'une application existante : analyse de l'existant, nouvelles fonctionnalités, amélioration UX.",
+        context: "La SAÉ du semestre 4 nous a placés dans un contexte professionnel : reprendre un projet existant, le comprendre, le documenter, puis l'enrichir. Ce projet m'a confronté à la réalité de la reprise de code et de la conduite de projet avec rédaction de spécifications.",
+        contexteDetail: "Durée : ~8 semaines — Équipe — Contrainte : reprise de code existant, rédaction de spécifications, livraisons planifiées",
         objectifs: [
             "Analyse et documentation du code source existant",
             "Rédaction d'un cahier des charges pour les nouvelles fonctionnalités",
-            "Développement de nouvelles fonctionnalités en JavaScript",
-            "Amélioration de l'expérience utilisateur (UX)",
+            "Développement JavaScript et amélioration UX",
             "Gestion des versions et revues de code via Git"
         ],
         competences: {
-            techniques: ["JavaScript", "HTML/CSS", "Git", "UX Design"],
-            humaines: ["Analyse de l'existant", "Rédaction de spécifications", "Gestion de projet", "Communication d'équipe"]
+            techniques: ["JavaScript ES6+", "DOM API", "HTML/CSS", "Git collaboratif"],
+            humaines: ["Analyse de l'existant", "Rédaction de specs", "Gestion de projet", "Communication d'équipe"]
         },
         technologies: ["JavaScript", "HTML/CSS", "Git"],
         detailLink: "projets/noodle.html",
-        liveLink: null
+        liveLink: "https://webinfo.iutmontp.univ-montp2.fr/~larcherc/noodle/noodle-code-de-base/web/accueil"
     },
     {
         title: "TD JavaScript",
         type: "Cours · Développement Web · S4",
         badge: "Individuel · Tout le semestre",
         description: "Travaux pratiques progressifs sur le JavaScript moderne : DOM, événements, API REST, async/await.",
-        context: "Les TD de JavaScript du semestre 4 m'ont permis d'approfondir ma maîtrise du langage côté client, en partant des bases du DOM pour aller vers des concepts avancés : programmation asynchrone, manipulation des API REST, gestion des promesses. Chaque TP construisait sur le précédent, aboutissant à des mini-applications interactives complètes.",
-        contexteDetail: "Durée : tout le S4 — Individuel — Contrainte : progression guidée, notations régulières",
+        context: "Progression structurée du semestre 4 autour du JavaScript côté client. Chaque TP introduisait de nouveaux concepts — DOM, événements, programmation asynchrone, consommation d'APIs REST — en s'appuyant sur les acquis précédents.",
+        contexteDetail: "Durée : tout le S4 — Individuel — Contrainte : progression notée, approfondissement continu",
         objectifs: [
-            "Manipulation avancée du DOM (événements, sélecteurs, modification dynamique)",
+            "Manipulation avancée du DOM (sélecteurs, événements, modification dynamique)",
             "Programmation asynchrone : Promises, async/await, fetch()",
-            "Consommation d'API REST externes (affichage de données dynamiques)",
-            "Bonnes pratiques : séparation des responsabilités, modules ES6"
+            "Consommation d'API REST externes et affichage dynamique",
+            "Organisation en modules ES6 et séparation des responsabilités"
         ],
         competences: {
-            techniques: ["JavaScript ES6+", "DOM API", "Fetch / API REST", "HTML/CSS"],
-            humaines: ["Autonomie", "Rigueur", "Débogage méthodique"]
+            techniques: ["JavaScript ES6+", "DOM API", "Fetch / API REST", "async/await", "Modules ES6"],
+            humaines: ["Autonomie", "Débogage méthodique", "Rigueur"]
         },
         technologies: ["JavaScript", "HTML/CSS", "API REST"],
         detailLink: "projets/td-javascript.html",
+        liveLink: null
+    },
+    {
+        title: "Infrastructure Docker",
+        type: "TP Noté · Virtualisation · S4",
+        badge: "En binôme/trinôme · 3 heures",
+        description: "Conception et déploiement d'une stack d'entreprise complète avec Docker Compose : reverse proxy, réplication MySQL, Keycloak SSO.",
+        context: "Projet noté de fin de module (R4.A.08) : déployer en 3h une infrastructure d'entreprise complète via Docker Compose, en respectant isolation réseau stricte et haute disponibilité. 7 conteneurs, 3 réseaux, une seule commande de déploiement.",
+        contexteDetail: "Durée : 3h (TP noté) — En binôme — Contrainte : déploiement en une commande, évaluation automatisée",
+        objectifs: [
+            "Nginx reverse proxy : point d'entrée unique exposant les ports 80/443",
+            "web_app : Dockerfile PHP/Apache custom sans port exposé directement",
+            "Réplication MySQL Master/Slave : configuration binlog, synchronisation vérifiée",
+            "Keycloak SSO + PostgreSQL : gestion des identités isolée sur net_auth",
+            "Mailpit : intercepteur SMTP pour les tests d'envoi de mails",
+            "Isolation réseau : 3 réseaux bridge (net_public, net_db, net_auth)"
+        ],
+        competences: {
+            techniques: ["Docker & Docker Compose", "Nginx (reverse proxy)", "MySQL (réplication M/S)", "Keycloak · SSO", "PostgreSQL", "Isolation réseau"],
+            humaines: ["Gestion sous pression", "Lecture de documentation", "Débogage systémique", "Travail en binôme"]
+        },
+        technologies: ["Docker", "Nginx", "MySQL", "Keycloak", "PostgreSQL"],
+        detailLink: "projets/docker-infra.html",
         liveLink: null
     }
 ];
@@ -174,16 +195,16 @@ function initProjectModal() {
                     </span>
                 </div>
                 <p style="color:#4a5568;line-height:1.7;margin-bottom:6px;"><strong>${project.description}</strong></p>
-                
+
                 <h4>Contexte</h4>
                 <p>${project.context}</p>
                 <p style="font-size:0.85rem;color:#718096;background:#f7f8fa;padding:8px 14px;border-radius:6px;border-left:3px solid #e67e22;">
                     <i class="fas fa-clock"></i> ${project.contexteDetail}
                 </p>
-                
+
                 <h4>Objectifs réalisés</h4>
                 <ul>${project.objectifs.map(o => `<li>${o}</li>`).join('')}</ul>
-                
+
                 <h4>Compétences acquises</h4>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;">
                     <div style="background:#f7f8fa;border-radius:8px;padding:14px;">
@@ -222,10 +243,7 @@ function initProjectModal() {
 
     closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
     if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
-
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') closeModal();
-    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 }
 
 // ==================== SMOOTH SCROLL ====================
@@ -261,9 +279,7 @@ function initScrollSpy() {
         });
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
+            if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
         });
     });
 }

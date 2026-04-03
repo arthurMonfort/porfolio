@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructure Docker — Arthur Monfort</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="hero" style="background: linear-gradient(135deg, #1a2535 0%, #0d3349 50%, #1a4a3a 100%);">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+        <span class="hero-eyebrow">TP Noté · Semestre 4 · Virtualisation &amp; Conteneurisation</span>
+        <h1 class="hero-title" style="font-size:3rem;">Infrastructure <em>Docker</em></h1>
+        <p class="hero-subtitle">Conception et déploiement d'une stack d'entreprise complète</p>
+        <a href="../index.html" class="hero-btn" style="margin-top:20px;">
+            <i class="fas fa-arrow-left"></i> Retour au portfolio
+        </a>
+    </div>
+</header>
+
+<div class="container section">
+
+    <!-- Contexte -->
+    <div class="box">
+        <h3><i class="fas fa-info-circle"></i> Présentation du projet</h3>
+        <p>
+            Ce projet noté de fin de module (R4.A.08 — Outils de la virtualisation) consistait à concevoir et déployer une infrastructure d'entreprise complète via Docker Compose, en un binôme, dans un délai de 3 heures. L'objectif était de démontrer notre capacité à orchestrer des services interdépendants en respectant des principes stricts d'isolation réseau et de haute disponibilité.
+        </p>
+        <p style="background:#f7f8fa;border-left:3px solid #e67e22;padding:10px 16px;border-radius:6px;font-size:0.9rem;color:#718096;">
+            <i class="fas fa-clock"></i> <strong>Durée :</strong> 3 heures (TP noté) &nbsp;|&nbsp;
+            <i class="fas fa-users"></i> <strong>En binôme</strong> &nbsp;|&nbsp;
+            <i class="fas fa-exclamation-triangle"></i> <strong>Contrainte :</strong> déploiement en une seule commande, isolation réseau stricte, évaluation automatisée
+        </p>
+    </div>
+
+    <div class="box">
+        <div class="gallery">
+            <img src="../ressources/docker1.png" alt="Nuit de l'Info — Interface 1" class="img-responsive">
+            <img src="../ressources/docker2.png" alt="Nuit de l'Info — Interface 2" class="img-responsive">
+        </div>
+        <div class="gallery">
+            <img src="../ressources/docker3.png" alt="Nuit de l'Info — Interface 1" class="img-responsive">
+            <img src="../ressources/docker4.png" alt="Nuit de l'Info — Interface 2" class="img-responsive">
+        </div>
+    </div>
+
+    <!-- Architecture -->
+    <div class="box">
+        <h3><i class="fas fa-sitemap"></i> Architecture déployée</h3>
+        <p>L'infrastructure complète repose sur <strong>3 réseaux isolés</strong> et <strong>7 conteneurs</strong> aux rôles distincts :</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;">
+
+            <div style="background:#f7f8fa;border-radius:8px;padding:16px;border-left:4px solid #2980b9;">
+                <p style="font-weight:700;color:#1a2535;margin-bottom:8px;font-size:0.9rem;"><i class="fas fa-shield-alt" style="color:#2980b9;"></i> net_public — Zone exposée</p>
+                <ul style="margin-left:14px;font-size:0.88rem;">
+                    <li><strong>proxy_nginx</strong> — Reverse proxy, point d'entrée unique (ports 80/443)</li>
+                    <li><strong>web_app</strong> — Serveur Apache/PHP (Dockerfile custom)</li>
+                    <li><strong>keycloak_auth</strong> — Gestion des identités (SSO)</li>
+                    <li><strong>mail_test</strong> — Intercepteur SMTP Mailpit</li>
+                </ul>
+            </div>
+
+            <div style="background:#f7f8fa;border-radius:8px;padding:16px;border-left:4px solid #e74c3c;">
+                <p style="font-weight:700;color:#1a2535;margin-bottom:8px;font-size:0.9rem;"><i class="fas fa-database" style="color:#e74c3c;"></i> net_db — Zone bases de données</p>
+                <ul style="margin-left:14px;font-size:0.88rem;">
+                    <li><strong>mysql_master</strong> — Base principale (écritures)</li>
+                    <li><strong>mysql_slave</strong> — Réplique en lecture seule</li>
+                </ul>
+                <br>
+                <p style="font-weight:700;color:#1a2535;margin-bottom:8px;font-size:0.9rem;"><i class="fas fa-key" style="color:#27ae60;"></i> net_auth — Zone authentification</p>
+                <ul style="margin-left:14px;font-size:0.88rem;">
+                    <li><strong>postgres_keycloak</strong> — BDD dédiée à Keycloak</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Missions -->
+    <div class="box">
+        <h3><i class="fas fa-tasks"></i> Ce que j'ai mis en place</h3>
+        <ul>
+            <li><strong>Docker Compose multi-services :</strong> rédaction du fichier <code>docker-compose.yml</code> orchestrant 7 conteneurs avec leurs dépendances (<code>depends_on</code>), volumes et variables d'environnement via <code>.env</code>.</li>
+            <li><strong>Reverse proxy Nginx :</strong> configuration du <code>nginx.conf</code> pour router le trafic entrant vers <code>web_app</code> sans exposer ce dernier directement sur le réseau hôte.</li>
+            <li><strong>Dockerfile custom pour web_app :</strong> image PHP/Apache personnalisée avec les extensions nécessaires (PDO,…).</li>
+            <li><strong>Réplication MySQL Master/Slave :</strong> configuration des fichiers <code>master.cnf</code> et <code>slave.cnf</code>, exécution des commandes <code>docker exec</code> pour lier les deux instances et valider la synchronisation en temps réel.</li>
+            <li><strong>Keycloak + PostgreSQL :</strong> déploiement du service d'authentification SSO avec sa base dédiée, configuration des variables d'environnement (<code>KC_DB</code>, <code>KC_DB_URL</code>…) pour le lier à PostgreSQL.</li>
+            <li><strong>Isolation réseau :</strong> chaque conteneur n'est connecté qu'aux réseaux strictement nécessaires à son fonctionnement, sans accès transversal non autorisé.</li>
+            <li><strong>Documentation README.md :</strong> schéma des flux réseau, commande de déploiement unique, mode opératoire de la réplication MySQL.</li>
+        </ul>
+    </div>
+
+    <!-- Compétences -->
+    <div class="box">
+        <h3><i class="fas fa-star"></i> Compétences développées</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div>
+                <p style="font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1a2535;margin-bottom:8px;">Techniques</p>
+                <div class="tags">
+                    <span class="tag tag-primary">Docker &amp; Docker Compose</span>
+                    <span class="tag tag-primary">Nginx (reverse proxy)</span>
+                    <span class="tag tag-primary">MySQL (réplication M/S)</span>
+                    <span class="tag tag-primary">Keycloak · SSO</span>
+                    <span class="tag tag-primary">PostgreSQL</span>
+                    <span class="tag tag-primary">Isolation réseau</span>
+                    <span class="tag tag-primary">Dockerfile custom</span>
+                </div>
+            </div>
+            <div>
+                <p style="font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1a2535;margin-bottom:8px;">Humaines</p>
+                <div class="tags">
+                    <span class="tag">Gestion sous pression</span>
+                    <span class="tag">Travail en binôme</span>
+                    <span class="tag">Lecture de documentation</span>
+                    <span class="tag">Débogage systémique</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Réflexion -->
+    <div class="box">
+        <h3><i class="fas fa-lightbulb"></i> Ce que j'ai appris</h3>
+        <p>
+            Ce projet m'a plongé dans la réalité des infrastructures modernes : conteneuriser des services, les faire communiquer de façon sécurisée et les orchestrer proprement avec un seul fichier de configuration est une compétence directement applicable en entreprise. Voir l'ensemble de la stack démarrer en une seule commande après des heures de configuration est une vraie satisfaction.
+        </p>
+        <p>
+            La réplication MySQL a été la partie la plus délicate : comprendre le mécanisme de binlog, configurer les deux instances pour qu'elles se reconnaissent et vérifier que la synchronisation fonctionne en temps réel m'ont demandé de lire attentivement la documentation officielle et de déboguer méthodiquement. C'est aussi ce projet qui m'a appris à vraiment lire les logs Docker pour comprendre ce qui se passe dans un conteneur.
+        </p>
+        <p>
+            Keycloak a introduit une dimension nouvelle : la gestion des identités et le SSO sont des sujets que je n'avais jamais abordés concrètement. Comprendre le flux d'authentification — redirection vers Keycloak, obtention d'un token, validation côté application — m'a donné une base solide pour appréhender la sécurité dans les architectures microservices.
+        </p>
+    </div>
+
+    <div style="margin-top:10px;">
+        <a href="../index.html" class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i> Retour au portfolio
+        </a>
+    </div>
+</div>
+
+<footer class="footer">
+    <p><strong>Arthur Monfort</strong> — Portfolio BUT Informatique</p>
+    <p>© 2025 — Tous droits réservés</p>
+</footer>
+</body>
+</html>

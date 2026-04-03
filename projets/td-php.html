@@ -3,43 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TD PHP - Arthur Monfort</title>
+    <title>TD PHP — Arthur Monfort</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<header class="hero">
+
+<header class="hero" style="background: linear-gradient(135deg, #1a2535 0%, #4a1a6b 100%);">
+    <div class="hero-bg-grid"></div>
     <div class="hero-content">
-        <h1>TD PHP</h1>
-        <p>Développement d'une plateforme de gestion </p>
-        <a href="../index.html" class="btn btn-outline" style="color:white; border-color:white; margin-top:20px;">
+        <span class="hero-eyebrow">Cours · Semestre 3 &amp; 4 · Développement Web</span>
+        <h1 class="hero-title" style="font-size:3rem;">TD <em>PHP &amp; Symfony</em></h1>
+        <p class="hero-subtitle">Du MVC artisanal aux composants professionnels</p>
+        <a href="../index.html" class="hero-btn" style="margin-top:20px;">
             <i class="fas fa-arrow-left"></i> Retour au portfolio
         </a>
     </div>
 </header>
 
 <div class="container section">
+
+    <!-- Contexte -->
     <div class="box">
+        <h3><i class="fas fa-info-circle"></i> Présentation</h3>
+        <p>
+            Les travaux dirigés de développement web constituent un fil rouge sur les deux premières années du BUT. En S3, ils m'ont permis de construire itérativement un site de covoiturage complet en PHP pur avec architecture MVC. En S4, la progression s'est accélérée avec l'introduction de composants Symfony et du langage de gabarit Twig.
+        </p>
+        <p style="background:#f7f8fa;border-left:3px solid #e67e22;padding:10px 16px;border-radius:6px;font-size:0.9rem;color:#718096;">
+            <i class="fas fa-clock"></i> <strong>Durée :</strong> S3 &amp; S4 (progressif) &nbsp;|&nbsp;
+            <i class="fas fa-user"></i> <strong>Individuel</strong> &nbsp;|&nbsp;
+            <i class="fas fa-exclamation-triangle"></i> <strong>Contrainte :</strong> progression notée, complexité croissante
+        </p>
+    </div>
 
-        <h2><i class="fas fa-info-circle"></i> Présentation du projet</h2>
-        <p>Ce projet consistait à créer un système de covoiturage en utilisant de la gestion de données via une interface web sécurisée.</p>
-
-
-        <h3>Missions réalisées :</h3>
-        <ul>
-            <li>améliorations du site en continue via des TD</li>
-            <li>Mise en place d'une architecture <strong>MVC (Modèle-Vue-Contrôleur)</strong>.</li>
-            <li>Sécurisation des formulaires et des sessions utilisateurs.</li>
-        </ul>
-
-        <div class="tags">
-            <span class="tag tag-primary">PHP</span>
-            <span class="tag tag-primary">MySQL</span>
-            <span class="tag tag-primary">MVC</span>
+    <div class="box">
+        <div class="gallery">
+            <img src="../ressources/td-php1.png" alt="Nuit de l'Info — Interface 1" class="img-responsive">
+            <img src="../ressources/td-php2.png" alt="Nuit de l'Info — Interface 2" class="img-responsive">
         </div>
+    </div>
 
+    <!-- S3 -->
+    <div class="box">
+        <h3><i class="fas fa-code"></i> Semestre 3 — MVC PHP artisanal</h3>
+        <p>Construction pas à pas d'un site de covoiturage en partant de zéro, chaque TD enrichissant le projet précédent.</p>
+        <ul>
+            <li><strong>Conception de la base de données :</strong> modélisation des entités (trajets, utilisateurs, réservations) et de leurs relations en MySQL.</li>
+            <li><strong>Architecture MVC maison :</strong> routeur simple, séparation des couches Modèle / Vue / Contrôleur sans framework.</li>
+            <li><strong>Authentification sécurisée :</strong> gestion des sessions PHP, hashage des mots de passe, protection CSRF.</li>
+            <li><strong>CRUD complet :</strong> création, lecture, mise à jour et suppression des trajets et profils utilisateurs.</li>
+        </ul>
+    </div>
 
+    <!-- S4 -->
+    <div class="box">
+        <h3><i class="fas fa-layer-group"></i> Semestre 4 — Composants Symfony &amp; Twig</h3>
+        <p>Montée en puissance vers une approche plus industrielle du développement PHP, avec l'introduction de composants professionnels.</p>
+        <ul>
+            <li><strong>Architecture MVCS :</strong> ajout de la couche Service au MVC classique, pour isoler la logique métier des contrôleurs.</li>
+            <li><strong>Système de routage Symfony :</strong> utilisation du composant <code>symfony/routing</code> pour gérer les URLs de façon déclarative et propre.</li>
+            <li><strong>Vues Twig :</strong> découverte du langage de gabarit Twig — héritage de templates, blocs, filtres, inclusion de composants partiels.</li>
+            <li><strong>Injection de dépendances :</strong> premiers pas avec le conteneur de services pour découpler les classes et faciliter les tests.</li>
+        </ul>
+        <div class="tags" style="margin-top:12px;">
+            <span class="tag tag-primary">PHP</span>
+            <span class="tag tag-primary">Symfony (composants)</span>
+            <span class="tag tag-primary">Twig</span>
+            <span class="tag tag-primary">MVCS</span>
+            <span class="tag tag-primary">MySQL</span>
+        </div>
+    </div>
+
+    <!-- Compétences -->
+    <div class="box">
+        <h3><i class="fas fa-star"></i> Compétences développées</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div>
+                <p style="font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1a2535;margin-bottom:8px;">Techniques</p>
+                <div class="tags">
+                    <span class="tag tag-primary">PHP MVC / MVCS</span>
+                    <span class="tag tag-primary">Symfony Routing</span>
+                    <span class="tag tag-primary">Twig (gabarit)</span>
+                    <span class="tag tag-primary">MySQL</span>
+                    <span class="tag tag-primary">HTML/CSS</span>
+                </div>
+            </div>
+            <div>
+                <p style="font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1a2535;margin-bottom:8px;">Humaines</p>
+                <div class="tags">
+                    <span class="tag">Autonomie</span>
+                    <span class="tag">Apprentissage progressif</span>
+                    <span class="tag">Rigueur architecturale</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Réflexion -->
+    <div class="box">
+        <h3><i class="fas fa-lightbulb"></i> Ce que j'ai appris</h3>
+        <p>
+            La progression du PHP artisanal vers les composants Symfony m'a fait comprendre pourquoi les frameworks existent : non pas pour masquer la complexité, mais pour la gérer de façon standardisée et maintenable. Reconstruire moi-même un routeur en S3 m'a donné une base solide pour comprendre et apprécier ce que Symfony propose en S4.
+        </p>
+        <p>
+            Twig a été une vraie révélation : la séparation entre logique et présentation, que j'avais déjà pratiquée en MVC, devient encore plus nette et élégante avec un vrai langage de gabarit. L'héritage de templates évite une quantité énorme de duplication de code HTML.
+        </p>
+    </div>
+
+    <div style="margin-top:10px;">
+        <a href="../index.html" class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i> Retour au portfolio
+        </a>
     </div>
 </div>
+
+<footer class="footer">
+    <p><strong>Arthur Monfort</strong> — Portfolio BUT Informatique</p>
+    <p>© 2025 — Tous droits réservés</p>
+</footer>
 </body>
 </html>

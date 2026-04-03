@@ -3,41 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAÉ Pokémon TCG - Arthur Monfort</title>
+    <title>SAÉ Pokémon TCG — Arthur Monfort</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<header class="hero" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
+
+<header class="hero" style="background: linear-gradient(135deg, #7b1e1e 0%, #c0392b 100%);">
+    <div class="hero-bg-grid"></div>
     <div class="hero-content">
-        <h1>SAÉ Pokémon TCG</h1>
-        <p>Application Desktop de Gestion de Collection</p>
-        <a href="../index.html" class="btn btn-outline" style="color:white; border-color:white; margin-top:20px;">
-            <i class="fas fa-arrow-left"></i> Retour
+        <span class="hero-eyebrow">SAÉ · Semestre 3 · Application Java</span>
+        <h1 class="hero-title" style="font-size:3rem;">SAÉ <em>Pokémon TCG</em></h1>
+        <p class="hero-subtitle">Application desktop de gestion de collection de cartes</p>
+        <a href="../index.html" class="hero-btn" style="margin-top:20px;">
+            <i class="fas fa-arrow-left"></i> Retour au portfolio
         </a>
     </div>
 </header>
 
 <div class="container section">
+
+    <!-- Contexte -->
     <div class="box">
+        <h3><i class="fas fa-info-circle"></i> Présentation du projet</h3>
+        <p>
+            Cette SAÉ avait pour objectif de concevoir un logiciel de bureau permettant à un binôme de pouvoir jouer au jeu de carte de Pokemon TCG selon les règles traditionnel. Le défi principal était double : appliquer rigoureusement les principes de la programmation orientée objet (héritage, encapsulation, polymorphisme) tout en produisant une interface graphique ergonomique avec JavaFX.
+        </p>
+        <p style="background:#f7f8fa;border-left:3px solid #e67e22;padding:10px 16px;border-radius:6px;font-size:0.9rem;color:#718096;">
+            <i class="fas fa-clock"></i> <strong>Durée :</strong> ~6 semaines &nbsp;|&nbsp;
+            <i class="fas fa-users"></i> <strong>En binôme</strong> &nbsp;|&nbsp;
+            <i class="fas fa-exclamation-triangle"></i> <strong>Contrainte :</strong> respect strict des concepts POO, interface graphique obligatoire
+        </p>
+    </div>
 
-        <h2><i class="fas fa-gamepad"></i> Application Java</h2>
-        <p>Logiciel permettant aux collectionneurs de suivre leur inventaire de cartes Pokémon TCG avec persistance des données.</p>
+    <!-- Capture -->
+    <div class="box">
+        <img src="../ressources/pokemon-tcg.png" alt="Interface Application Pokémon TCG" class="img-responsive">
+    </div>
 
-        <img src="../ressources/pokemon-tcg.png" alt="Interface Application Pokémon" class="img-responsive">
-
-        <h3>Points techniques :</h3>
+    <!-- Missions -->
+    <div class="box">
+        <h3><i class="fas fa-tasks"></i> Missions réalisées</h3>
         <ul>
-            <li><strong>JavaFX :</strong> Interface graphique moderne et réactive.</li>
-            <li><strong>POO :</strong> Application rigoureuse des concepts de classes et héritage.</li>
+            <li><strong>Conception orientée objet :</strong> définition de la hiérarchie de classes (Carte, CarteAttaque, CartePokémon…), application des principes SOLID.</li>
+            <li><strong>Interface graphique JavaFX :</strong> développement de l'UI avec SceneBuilder — tableaux, formulaires, navigation entre les vues.</li>
+            <li><strong>Architecture MVC :</strong> séparation nette entre modèle de données, vues FXML et contrôleurs Java.</li>
+            <li><strong>Persistance des données :</strong> sérialisation / désérialisation de l'inventaire pour conserver les données entre les sessions.</li>
+            <li><strong>Validation et gestion des erreurs :</strong> contrôle des saisies utilisateur et messages d'erreur contextuels.</li>
         </ul>
+    </div>
 
-        <div class="tags">
-            <span class="tag tag-success">Java</span>
-            <span class="tag tag-success">JavaFX</span>
-            <span class="tag tag-success">POO</span>
+    <!-- Compétences -->
+    <div class="box">
+        <h3><i class="fas fa-star"></i> Compétences développées</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div>
+                <p style="font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1a2535;margin-bottom:8px;">Techniques</p>
+                <div class="tags">
+                    <span class="tag tag-success">Java</span>
+                    <span class="tag tag-success">JavaFX</span>
+                    <span class="tag tag-success">POO avancée</span>
+                    <span class="tag tag-success">Architecture MVC</span>
+                    <span class="tag tag-success">SceneBuilder</span>
+                </div>
+            </div>
+            <div>
+                <p style="font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1a2535;margin-bottom:8px;">Humaines</p>
+                <div class="tags">
+                    <span class="tag">Rigueur de conception</span>
+                    <span class="tag">Travail en binôme</span>
+                    <span class="tag">Débogage méthodique</span>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Réflexion -->
+    <div class="box">
+        <h3><i class="fas fa-lightbulb"></i> Ce que j'ai appris</h3>
+        <p>
+            Ce projet m'a permis de comprendre que la POO n'est pas qu'une liste de concepts à connaître pour un examen, mais un vrai outil de conception qui structure la façon de penser un problème. La phase de modélisation des classes — avant d'écrire la moindre ligne de code — s'est révélée cruciale : chaque mauvaise décision de conception s'est répercutée en cascade sur tout le reste du projet.
+        </p>
+        <p>
+            JavaFX m'a aussi confronté à la réalité du développement d'interface : l'UX est un métier à part entière. Faire quelque chose qui fonctionne est une chose ; faire quelque chose d'intuitif et d'agréable à utiliser en est une autre, bien plus difficile.
+        </p>
+    </div>
+
+    <div style="margin-top:10px;">
+        <a href="../index.html" class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i> Retour au portfolio
+        </a>
+    </div>
 </div>
+
+<footer class="footer">
+    <p><strong>Arthur Monfort</strong> — Portfolio BUT Informatique</p>
+    <p>© 2025 — Tous droits réservés</p>
+</footer>
 </body>
 </html>

@@ -3,49 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAÉ Client PHP - Arthur Monfort</title>
+    <title>SAÉ Client PHP — Arthur Monfort</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<header class="hero">
+
+<header class="hero" style="background: linear-gradient(135deg, #1a2535 0%, #1a4a6b 100%);">
+    <div class="hero-bg-grid"></div>
     <div class="hero-content">
-        <h1>SAÉ Client PHP</h1>
-        <p>Développement d'une plateforme de gestion</p>
-        <a href="../index.html" class="btn btn-outline" style="color:white; border-color:white; margin-top:20px;">
+        <span class="hero-eyebrow">SAÉ · Semestre 3 · Développement Web</span>
+        <h1 class="hero-title" style="font-size:3rem;">SAÉ <em>Client PHP</em></h1>
+        <p class="hero-subtitle">Développement d'une application web pour un client réel</p>
+        <a href="../index.html" class="hero-btn" style="margin-top:20px;">
             <i class="fas fa-arrow-left"></i> Retour au portfolio
         </a>
     </div>
 </header>
 
 <div class="container section">
+
+    <!-- Contexte -->
     <div class="box">
+        <h3><i class="fas fa-info-circle"></i> Présentation du projet</h3>
+        <p>
+            Dans le cadre d'une SAÉ du semestre 3, nous devions répondre à une demande réelle d'un client souhaitant automatiser la gestion de ses données via une interface web sécurisée. Le projet couvrait l'intégralité du cycle de développement : analyse des besoins, modélisation, développement et déploiement sur le serveur de l'IUT.
+        </p>
+        <p style="background:#f7f8fa;border-left:3px solid #e67e22;padding:10px 16px;border-radius:6px;font-size:0.9rem;color:#718096;">
+            <i class="fas fa-clock"></i> <strong>Durée :</strong> ~6 semaines &nbsp;|&nbsp;
+            <i class="fas fa-users"></i> <strong>Équipe de 4</strong> &nbsp;|&nbsp;
+            <i class="fas fa-exclamation-triangle"></i> <strong>Contrainte :</strong> cahier des charges client, délais imposés, déploiement réel
+        </p>
+    </div>
 
-        <h2><i class="fas fa-info-circle"></i> Présentation du projet</h2>
-        <p>Ce projet consistait à répondre à une demande réelle d'un client souhaitant automatiser la gestion de ses données via une interface web sécurisée.</p>
+    <!-- Capture -->
+    <div class="box">
+        <img src="../ressources/php-client.png" alt="Interface SAÉ Client PHP" class="img-responsive">
+    </div>
 
-        <img src="../ressources/php-client.png" alt="Interface PHP Client" class="img-responsive">
-
-        <h3>Missions réalisées :</h3>
+    <!-- Missions -->
+    <div class="box">
+        <h3><i class="fas fa-tasks"></i> Missions réalisées</h3>
         <ul>
-            <li>Analyse du cahier des charges et modélisation de la base de données.</li>
-            <li>Mise en place d'une architecture <strong>MVC (Modèle-Vue-Contrôleur)</strong>.</li>
-            <li>Sécurisation des formulaires et des sessions utilisateurs.</li>
+            <li><strong>Analyse du cahier des charges :</strong> identification des besoins fonctionnels et non fonctionnels du client, reformulation en termes techniques.</li>
+            <li><strong>Modélisation de la base de données :</strong> conception du schéma relationnel (MLD/MPD), création et alimentation de la base MySQL.</li>
+            <li><strong>Architecture MVC :</strong> mise en place d'une structure Modèle-Vue-Contrôleur en PHP pur pour séparer clairement les responsabilités.</li>
+            <li><strong>Authentification sécurisée :</strong> système de connexion avec gestion des sessions, hashage des mots de passe et protection contre les injections SQL.</li>
+            <li><strong>Interface responsive :</strong> développement d'un front-end HTML/CSS/JS adapté à tous les supports.</li>
+            <li><strong>Déploiement :</strong> mise en ligne sur le serveur de l'IUT via SSH, tests et corrections en conditions réelles.</li>
         </ul>
+    </div>
 
-        <div class="tags">
-            <span class="tag tag-primary">PHP 8</span>
-            <span class="tag tag-primary">MySQL</span>
-            <span class="tag tag-primary">MVC</span>
-            <span class="tag tag-primary">Bootstrap</span>
-        </div>
-
-        <div style="margin-top: 30px;">
-            <a href="https://webinfo.iutmontp.univ-montp2.fr/~larcherc/democr@/web/controleurFrontal.php" target="_blank" class="btn btn-primary">
-                <i class="fas fa-external-link-alt"></i> Voir le site en ligne
-            </a>
+    <!-- Compétences -->
+    <div class="box">
+        <h3><i class="fas fa-star"></i> Compétences développées</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div>
+                <p style="font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1a2535;margin-bottom:8px;">Techniques</p>
+                <div class="tags">
+                    <span class="tag tag-primary">PHP 8</span>
+                    <span class="tag tag-primary">MySQL</span>
+                    <span class="tag tag-primary">Architecture MVC</span>
+                    <span class="tag tag-primary">HTML/CSS</span>
+                    <span class="tag tag-primary">JavaScript</span>
+                    <span class="tag tag-primary">SSH · Déploiement</span>
+                </div>
+            </div>
+            <div>
+                <p style="font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1a2535;margin-bottom:8px;">Humaines</p>
+                <div class="tags">
+                    <span class="tag">Communication client</span>
+                    <span class="tag">Travail en équipe</span>
+                    <span class="tag">Gestion des délais</span>
+                    <span class="tag">Documentation</span>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Réflexion -->
+    <div class="box">
+        <h3><i class="fas fa-lightbulb"></i> Ce que j'ai appris</h3>
+        <p>
+            Travailler pour un vrai client change radicalement la nature d'un projet : les besoins exprimés ne sont pas toujours les besoins réels, et il faut savoir reformuler, valider et parfois pousser en arrière sur certaines demandes. Cette capacité à « traduire » un besoin métier en spécification technique est l'une des choses les plus concrètes que j'aie apprises dans ce projet.
+        </p>
+        <p>
+            Sur le plan technique, l'architecture MVC m'a appris à structurer mon code de façon maintenable. Au départ, tout mettre dans un seul fichier semblait plus simple ; en pratique, la séparation des couches a rendu le travail en équipe bien plus fluide et les évolutions beaucoup plus faciles à intégrer.
+        </p>
+    </div>
+
+    <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;">
+        <a href="https://webinfo.iutmontp.univ-montp2.fr/~larcherc/democr@/web/controleurFrontal.php" target="_blank" class="btn btn-secondary">
+            <i class="fas fa-external-link-alt"></i> Voir le site en ligne
+        </a>
+        <a href="../index.html" class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i> Retour au portfolio
+        </a>
+    </div>
 </div>
+
+<footer class="footer">
+    <p><strong>Arthur Monfort</strong> — Portfolio BUT Informatique</p>
+    <p>© 2025 — Tous droits réservés</p>
+</footer>
 </body>
 </html>
